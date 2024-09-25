@@ -11,7 +11,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 /**
  * Parses input arguments and creates a new RemarkCommand object
  */
-public class RemarkCommandParser {
+public class RemarkCommandParser implements Parser<RemarkCommand> {
 
     private static final Prefix PREFIX_REMARK = new Prefix("r/");
 
