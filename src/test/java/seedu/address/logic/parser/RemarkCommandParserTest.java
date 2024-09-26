@@ -1,9 +1,9 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +15,7 @@ import seedu.address.model.person.Remark;
 public class RemarkCommandParserTest {
 
     public static final Prefix PREFIX_REMARK = new Prefix("r/");
-    final Remark nonEmptyRemark =  new Remark("Some remark");
+    final Remark nonEmptyRemark = new Remark("Some remark");
     private final RemarkCommandParser parser = new RemarkCommandParser();
     @Test
     public void parse_indexSpecified_success() {
