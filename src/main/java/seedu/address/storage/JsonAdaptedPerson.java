@@ -39,7 +39,7 @@ class JsonAdaptedPerson {
         this.phone = phone;
         this.email = email;
         this.address = address;
-        this.remark = address;
+        this.remark = remark;
         if (tags != null) {
             this.tags.addAll(tags);
         }

@@ -10,6 +10,7 @@
     "name": "Alice Pauline",
     "phone": "94351253",
     "email": "pauline@example.com",
+    "remark": "remark",
     "address": "4th street"
   } ]
 }
