@@ -38,9 +38,8 @@
     },
     {
       "src": "DeveloperGuide.md",
-      "title": "Developer Guide",
       "headings": {
-        "ab-3-developer-guide": "AB-3 Developer Guide",
+        "trackmate-developer-guide": "TrackMate Developer Guide",
         "acknowledgements": "Acknowledgements",
         "setting-up-getting-started": "Setting up, getting started",
         "design": "Design",
@@ -51,8 +50,13 @@
         "storage-component": "Storage component",
         "common-classes": "Common classes",
         "implementation": "Implementation",
-        "proposed-undo-redo-feature": "[Proposed] Undo/redo feature",
-        "proposed-data-archiving": "[Proposed] Data archiving",
+        "add-feature": "Add feature",
+        "feature-s-architecture-design": "Feature's Architecture Design",
+        "edit-feature": "Edit feature",
+        "feature-s-architecture-design-2": "Feature's Architecture Design",
+        "edit-student": "Edit Student",
+        "delete-feature": "Delete Feature",
+        "feature-s-architecture-design-3": "Feature's Architecture Design",
         "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
         "appendix-requirements": "Appendix: Requirements",
         "product-scope": "Product scope",
@@ -62,7 +66,10 @@
         "glossary": "Glossary",
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
+        "adding-a-student": "Adding a student",
+        "editing-a-student": "Editing a student",
         "deleting-a-student": "Deleting a student",
+        "marking-attendance": "Marking attendance",
         "saving-data": "Saving data"
       },
       "headingKeywords": {}
