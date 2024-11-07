@@ -232,7 +232,7 @@ The designated names for each component of the User Interface will be used consi
 #### 3.2.2 Additional UI Components:
 
 <a id="additional-ui-components"></a>
-![additionalUIComponents.png](images/additionalUIComponents.png)
+![AdditionalUIComponents.png](images/AdditionalUIComponents.png)
 
 * **Index:** This component indicates the position of each student in the Student List Panel.
 
@@ -340,6 +340,9 @@ section for detailed information
 
 **Format:** `addStu n/NAME s/STUDENT_ID [c/TUTORIAL_ID]`
 
+>**Tip:** You can add a student without specifying a tutorial ID!
+>**Warning** You will need to add a tutorial before assign student to new tutorial
+
 Command detail & constraints:
 
 - This command registers a new student in the system with essential details like name and student ID, and optionally assigns them to a tutorial.
@@ -350,7 +353,9 @@ Command detail & constraints:
 **Examples:**
 
 - `addStu n/Samson s/A1234567X c/T1001` : Adds a student named "Samson" with the student ID "A1234567X" and assigns them to tutorial ID "T1001".
+  >**Expected output:** New student added: Samson; Student ID: A1234567X; Tutorial Class: T1001
 - `addStu n/Alice s/A1234567C` : Adds a student named "Alice" with the student ID "A1234567C" without assigning a tutorial ID.
+  >**Expected output:** New student added: Alice; Student ID: A1234567C; Tutorial Class: No tutorial assigned
 
 #### 4.1.2 Edit existing student detail: `edit`
 <a id="editing-a-student-edit"></a>
@@ -626,7 +631,7 @@ Command Details & Constraints:
 ### 4.6 Saving the data
 <a id="saving-the-data"></a>
 
-TO BE DONE
+The data in the TrackMate application are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 ### 4.7 Editing the data file
 <a id="editing-the-data-file"></a>
@@ -683,8 +688,8 @@ TO BE CHANGED
 | **Edit Student**      | `edit INDEX [n/NAME] [s/STUDENT_ID] [c/TUTORIAL_ID]​`<br> e.g., `edit 1 n/Samson Chew s/A1234567M`      |
 | **Delete Student**    | `deleteStu INDEX`<br> e.g., `deleteStu 3`                                                               |
 | **List Students**     | `listStu`                                                                                               |
-| **Add Tutorial**      | `addTut tn/TUTORIAL NAME c/TUTORIAL ID`<br> e.g., `addTut tn/CS1010 c/1011`                             |
-| **Delete Tutorial**   | `deleteTut c/TUTORIAL ID`<br> e.g., `deleteTut c/1011`                                                  |
+| **Add Tutorial**      | `addTut tn/TUTORIAL NAME c/TUTORIAL ID`<br> e.g., `addTut tn/CS1010 c/T1011`                             |
+| **Delete Tutorial**   | `deleteTut c/TUTORIAL ID`<br> e.g., `deleteTut c/T1011`                                                  |
 | **List Tutorials**    | `listTut`                                                                                               |
 | **Add Assignment**    | `addAsg n/ASSIGNMENT TITLE d/DUE DATE`<br> e.g., `addAsg n/Assignment 1 d/2024-10-23 1230`              |
 | **Delete Assignment** | `deleteAsg n/ASSIGNMENT TITLE`<br> e.g., `deleteAsg n/Assignment 1`                                     |
@@ -692,8 +697,8 @@ TO BE CHANGED
 | **Mark Assignment**   | `markAsg INDEX n/ASSIGNMENT TITLE`<br> e.g., `markAsg 1 n/Assignment 1`                                 |
 | **Unmark Assignment** | `unmarkAsg INDEX n/ASSIGNMENT TITLE`<br> e.g., `unmarkAsg 1 n/Assignment 1`                             |
 | **Check Assignment**  | `checkAsg n/ASSIGNMENT TITLE`<br> e.g., `checkAsg n/Assignment 1`                                       |
-| **Mark Attendance**   | `markAtt s/STUDENT ID c/TUTORIAL ID d/TUTORIAL DATE`<br> e.g., `attend s/1001 c/1001 d/2024-02-21`      |
-| **Unmark Attendance** | `deleteAtt s/STUDENT ID c/TUTORIAL ID d/TUTORIAL DATE`<br> e.g., `deleteAtt s/1001 c/1001 d/2024-02-21` |
+| **Mark Attendance**   | `markAtt s/STUDENT ID c/TUTORIAL ID d/TUTORIAL DATE`<br> e.g., `attend s/1001 c/T1001 d/2024-02-21`     |
+| **Unmark Attendance** | `deleteAtt s/STUDENT ID c/TUTORIAL ID d/TUTORIAL DATE`<br> e.g., `deleteAtt s/1001 c/T1001 d/2024-02-21`|
 | **Clear**             | `clear`                                                                                                 |
 | **Help**              | `help`                                                                                                  |
 | **Exit**              | `exit`                                                                                                  |
