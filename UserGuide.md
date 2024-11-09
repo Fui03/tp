@@ -41,7 +41,8 @@ In this comprehensive user guide, we will take you to experience a full journey 
   - [4.1.1 Adding a student: `add`](#adding-a-student-add)
   - [4.1.2 Editing a student: `edit`](#editing-a-student-edit)
   - [4.1.3 Deleting a student: `deleteStu`](#deleting-a-student-deleteStu)
-  - [4.1.4 Listing students: `listStu`](#listing-students-listStu)
+  - [4.1.4 Finding students: `find`](#finding-students)
+  - [4.1.5 Listing students: `list`](#listing-students-list)
 - [4.2 Tutorial Data Related Commands](#tutorial-data-commands)
   - [4.2.1 Adding a tutorial: `addTut`](#adding-a-tutorial-addTut)
   - [4.2.2 Deleting a tutorial: `deleteTut`](#deleting-a-tutorial-deleteTut)
@@ -58,7 +59,7 @@ In this comprehensive user guide, we will take you to experience a full journey 
   - [4.4.2 Unmarking an attendance: `deleteAtt`](#deleting-an-assignment-deleteAsg)
 - [4.5 General Commands](#general-commands)
   - [4.5.1 Viewing a Student on the Student Card](#viewing-a-student-on-the-student-card)
-  - [4.5.2 Clearing all entries: `clear`](#clearing-all-entries-clear)
+  - [4.5.2 Clearing all data: `clear`](#clearing-all-data)
   - [4.5.3 Exiting the program: `exit`](#exiting-the-program-exit)
   - [4.5.4 Viewing help: `help`](#viewing-help-help)
 - [4.6 Saving the Data](#saving-the-data)
@@ -138,22 +139,22 @@ information on how to interpret icons, formatting, and instructions provided thr
 ### 2.2 Sections:
 <a id="sections"></a>
 
-Below is a detailed overview of the main sections within this User Guide and what can be expected from each section.
+Written below is a detailed overview of the main sections in this User Guide and what you can expect from each section.
 
-- [Installation](#installation): If you're new to TrackMate or require guidance on installing the application, navigate to this section for step-by-step instructions.
-
-
-- [Commands](#commands): Section of the User Guide that delves into the intricacies of TrackMate commands, it is here where you'll find detailed explanations and practical examples for effective command usage.
+- [Installation](#installation): New to TrackMate? Visit this section for a straightforward, step-by-step guide on installing the application.
 
 
-- [Command Summary](#command-summary): For experienced users seeking a quick reference, this section offers a concise summary of all supported commands.
+- [Commands](#commands): Dive into the details of TrackMate's commands, with thorough explanations and practical examples to help you master command usage.
 
 
-- [FAQ](#faq): Should you encounter any queries or uncertainties while using the application, refer to this section for answers to frequently asked questions.
+- [Command Summary](#command-summary): Designed for experienced users, this section provides a quick-reference list of all supported commands.
+
+
+- [FAQ](#faq): If you have questions or encounter issues, this section covers frequently asked questions to help you resolve common concerns.
 
 
 <box type="info" seamless>
-For first-time users of the application, it is highly recommended for you to read through the Getting Started section before utilizing the application.
+First-time users are strongly encouraged to read the Getting Started section before beginning to use TrackMate.
 </box>
 
 --------------------------------------------------------------------------------------------------------------------
@@ -392,10 +393,27 @@ Command Details & Constraints:
 Example:
 1. `deleteStu 1` deletes the first person in the list displayed.
 
-#### 4.1.4 Listing students: `listStu`
-<a id="listing-students-listStu"></a>
+#### 4.1.4 Find students: `find`
+<a id="finding-students"></a>
+> Finds persons whose names contain any of the given keywords.
 
-> TO BE DONE
+Format: `find KEYWORD [KEYWORD]...`
+
+Command Details & Constraints:
+* The search is case-insensitive. e.g hans will match Hans
+* The order of the keywords does not matter. e.g. Hans Bo will match Bo Hans
+* Only the name is searched.
+* Only full words will be matched e.g. Han will not match Hans
+* Persons matching at least one keyword will be returned (i.e. OR search). e.g. Hans Bo will return Hans Gruber, Bo Yang
+
+Example:
+1. `find John` returns john and John Doe
+2. `find alex david` returns Alex Yeoh, David Li
+
+#### 4.1.5 Listing students: `list`
+<a id="listing-students-list"></a>
+
+> Shows a list of all students in the TrackMate application
 
 ### 4.2 Tutorial Data Related Commands:
 <a id="tutorial-data-commands"></a>
@@ -431,7 +449,7 @@ Command Details & Constraints:
 * All parameters are required to adhere to their [respective constraints](#332-parameters).
 
 Example:
-1. `deleteTut c/1001` deletes the tutorial with Tutorial ID `1001`, provided the tutorial exists.
+1. `deleteTut c/T1001` deletes the tutorial with Tutorial ID `T1001`, provided the tutorial exists.
 
 
 #### 4.2.3 List tutorials: `listTut`
@@ -564,8 +582,8 @@ Command Details & Constraints:
 * Date is optional (default date is today)
 
 Example:
-1. `markAtt s/1001 c/1001 d/2024-02-21` marks the attendance of student 1001 in tutorial class 1001 on 2024/02/21.
-2. `markAtt s/1001 c/1001` marks the attendance of student 1001 in tutorial class 1001 on today's date.
+1. `markAtt s/A01234567X c/T1001 d/2024-02-21` marks the attendance of student with student ID A01234567X in tutorial class T1001 on 2024/02/21.
+2. `markAtt s/A01234567X c/T1001` marks the attendance of student with student ID A01234567X in tutorial class T1001 on today's date.
 
 #### 4.4.2 Unmarking an attendance: `deleteAtt`
 <a id="unmarking-an-attendance-add"></a>
@@ -579,8 +597,8 @@ Command Details & Constraints:
 * Date is optional (default date is today)
 
 Example:
-1. `deleteAtt s/1001 c/1001 d/2024-02-21` deletes the attendance of student 1001 in tutorial class 1001 on 2024/02/21.
-2. `deleteAtt s/1001 c/1001` deletes the attendance of student 1001 in tutorial class 1001 on today's date.
+1. `deleteAtt s/A01234567X c/T1001 d/2024-02-21` deletes the attendance of student with student ID A01234567X in tutorial class T1001 on 2024/02/21.
+2. `deleteAtt s/A01234567X c/T1001` deletes the attendance of student with student ID A01234567X in tutorial class T1001 on today's date.
 
 
 
@@ -592,14 +610,12 @@ Example:
 
 > View a single student's details in a formatted and organized manner.
 
-**Method 1 -  Using GUI**: Left-click on a specific Student Panel Card within the Student List Panel of the TrackMate User Interface.
+**Method -  Using GUI**: Left-click on a specific Student Panel Card within the Student List Panel of the TrackMate User Interface.
 
-**Method 2 -  Using CLI**: Navigate using the `UP` and `DOWN` arrow keys to switch between Student Panel Cards on the Student List Panel.
+#### 4.5.2 Clearing all data: `clear`
+<a id="clearing-all-data"></a>
 
-#### 4.5.2 Clearing all entries: `clear`
-<a id="clearing-all-entries-clear"></a>
-
-> Clears all entries from the EduLink-NUS application.
+> Clears all data from TrackMate.
 
 Format: `clear`
 
@@ -644,8 +660,6 @@ If your changes to the data file makes its format invalid, the TrackMate applica
 Furthermore, certain edits can cause the TrackMate to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </box>
 
-TO BE CHANGED
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## 5. FAQ
@@ -666,42 +680,43 @@ TO BE CHANGED
 ## 7. Glossary
 <a id="glossary"></a>
 
-| Term           | Definition and or Explanation                                                                                                      |
-|----------------|------------------------------------------------------------------------------------------------------------------------------------|
-| **CSV**        | Comma-Separated Values, a file format generally used to import data in Spreadsheets and Do analysis                                |
-| **JSON**       | JavaScript Object Notation, a standard file format for data interchange                                                            |
-| **NUS**        | National University of Singapore , A University Located in Central Singapore                                                       |
-| **TA**         | Teaching Assistant, a tutor who will conduct tutorials in National University of Singapore                                         |
-| **SoC**        | School of Computing in National University of Singapore                                                                            |
+| Term           | Definition and or Explanation                                                                                                     |
+|----------------|-----------------------------------------------------------------------------------------------------------------------------------| 
+| **NUS**        | National University of Singapore                                                      |
+| **TA**         | Teaching Assistant, a tutor who will conduct tutorials in National University of Singapore                                        |
+| **SoC**        | School of Computing in National University of Singapore                                                                           |
 | **Student ID** | A particular format of ID followed in NUS, Starting with a Alphabet followed by 7 digits and ending with an Alphabet e.g A0252195L |
-| **GUI**        | Graphical User Interface , all the part of the application which you can interact with your mouse                                  |
-| **CLI**        | Command Line Interface , part of application which can only be used with commands from the Keyboard                                |
+| **GUI**        | Graphical User Interface , all the part of the application which you can interact with your mouse                                 |
+| **CLI**        | Command Line Interface , part of application which can only be used with commands from the Keyboard                               |
+| **CSV**        | Comma-Separated Values, a file format generally used to import data in Spreadsheets and Do analysis                               |
+| **JSON**       | JavaScript Object Notation, a standard file format for data interchange                                                          |
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## 8. Command summary
 <a id="command-summary"></a>
 
-| Action                | Format, Examples                                                                                        |
-|-----------------------|---------------------------------------------------------------------------------------------------------|
-| **Add Student**       | `addStu n/NAME s/STUDENT_ID [c/TUTORIAL_ID]​`<br> e.g. `addStu n/Samson s/A1234567X c/T1001`            |
-| **Edit Student**      | `edit INDEX [n/NAME] [s/STUDENT_ID] [c/TUTORIAL_ID]​`<br> e.g., `edit 1 n/Samson Chew s/A1234567M`      |
-| **Delete Student**    | `deleteStu INDEX`<br> e.g., `deleteStu 3`                                                               |
-| **List Students**     | `listStu`                                                                                               |
-| **Add Tutorial**      | `addTut tn/TUTORIAL NAME c/TUTORIAL ID`<br> e.g., `addTut tn/CS1010 c/T1011`                             |
-| **Delete Tutorial**   | `deleteTut c/TUTORIAL ID`<br> e.g., `deleteTut c/T1011`                                                  |
-| **List Tutorials**    | `listTut`                                                                                               |
-| **Add Assignment**    | `addAsg n/ASSIGNMENT TITLE d/DUE DATE`<br> e.g., `addAsg n/Assignment 1 d/2024-10-23 1230`              |
-| **Delete Assignment** | `deleteAsg n/ASSIGNMENT TITLE`<br> e.g., `deleteAsg n/Assignment 1`                                     |
-| **List Assignments**  | `listAsg`                                                                                               |
-| **Mark Assignment**   | `markAsg INDEX n/ASSIGNMENT TITLE`<br> e.g., `markAsg 1 n/Assignment 1`                                 |
-| **Unmark Assignment** | `unmarkAsg INDEX n/ASSIGNMENT TITLE`<br> e.g., `unmarkAsg 1 n/Assignment 1`                             |
-| **Check Assignment**  | `checkAsg n/ASSIGNMENT TITLE`<br> e.g., `checkAsg n/Assignment 1`                                       |
-| **Mark Attendance**   | `markAtt s/STUDENT ID c/TUTORIAL ID d/TUTORIAL DATE`<br> e.g., `attend s/1001 c/T1001 d/2024-02-21`     |
-| **Unmark Attendance** | `deleteAtt s/STUDENT ID c/TUTORIAL ID d/TUTORIAL DATE`<br> e.g., `deleteAtt s/1001 c/T1001 d/2024-02-21`|
-| **Clear**             | `clear`                                                                                                 |
-| **Help**              | `help`                                                                                                  |
-| **Exit**              | `exit`                                                                                                  |
+| Action                | Format, Examples                                                                                               |
+|-----------------------|----------------------------------------------------------------------------------------------------------------|
+| **Add Student**       | `addStu n/NAME s/STUDENT_ID [c/TUTORIAL_ID]​`<br> e.g. `addStu n/Samson s/A1234567X c/T1001`                   |
+| **Edit Student**      | `edit INDEX [n/NAME] [s/STUDENT_ID] [c/TUTORIAL_ID]​`<br> e.g., `edit 1 n/Samson Chew s/A1234567M`             |
+| **Delete Student**    | `deleteStu INDEX`<br> e.g., `deleteStu 3`                                                                      |
+| **Find Student**      | `find KEYWORD [KEYWORD]...`<br> e.g., `find Samson San Chian`                                                             |
+| **List Students**     | `list`                                                                                                         |
+| **Add Tutorial**      | `addTut tn/TUTORIAL NAME c/TUTORIAL ID`<br> e.g., `addTut tn/CS1010 c/T1011`                                   |
+| **Delete Tutorial**   | `deleteTut c/TUTORIAL ID`<br> e.g., `deleteTut c/T1011`                                                        |
+| **List Tutorials**    | `listTut`                                                                                                      |
+| **Add Assignment**    | `addAsg n/ASSIGNMENT TITLE d/DUE DATE`<br> e.g., `addAsg n/Assignment 1 d/2024-10-23 1230`                     |
+| **Delete Assignment** | `deleteAsg n/ASSIGNMENT TITLE`<br> e.g., `deleteAsg n/Assignment 1`                                            |
+| **List Assignments**  | `listAsg`                                                                                                      |
+| **Mark Assignment**   | `markAsg INDEX n/ASSIGNMENT TITLE`<br> e.g., `markAsg 1 n/Assignment 1`                                        |
+| **Unmark Assignment** | `unmarkAsg INDEX n/ASSIGNMENT TITLE`<br> e.g., `unmarkAsg 1 n/Assignment 1`                                    |
+| **Check Assignment**  | `checkAsg n/ASSIGNMENT TITLE`<br> e.g., `checkAsg n/Assignment 1`                                              |
+| **Mark Attendance**   | `markAtt s/STUDENT ID c/TUTORIAL ID d/TUTORIAL DATE`<br> e.g., `attend s/A01234567X c/T1001 d/2024-02-21`      |
+| **Unmark Attendance** | `deleteAtt s/STUDENT ID c/TUTORIAL ID d/TUTORIAL DATE`<br> e.g., `deleteAtt s/A01234567X c/T1001 d/2024-02-21` |
+| **Clear**             | `clear`                                                                                                        |
+| **Help**              | `help`                                                                                                         |
+| **Exit**              | `exit`                                                                                                         |
 
 --------------------------------------------------------------------------------------------------------------------
 
