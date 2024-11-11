@@ -69,7 +69,9 @@
         "editing-a-student": "Editing a student",
         "deleting-a-student": "Deleting a student",
         "marking-attendance": "Marking attendance",
-        "saving-data": "Saving data"
+        "marking-unmarking-assignment": "Marking/Unmarking assignment",
+        "saving-data": "Saving data",
+        "future-enhancements-2": "Future Enhancements"
       },
       "headingKeywords": {}
     },
@@ -115,7 +117,7 @@
       "headings": {
         "trackmate-user-guide": "TrackMate User Guide",
         "welcome-to-the-trackmate-user-guide": "Welcome to the TrackMate User Guide",
-        "table-of-content": "Table of Content",
+        "table-of-contents": "Table of Contents",
         "1-introduction": "1. Introduction",
         "1-1-what-is-trackmate": "1.1 What is TrackMate",
         "1-2-user-proficiency-and-expectations": "1.2 User Proficiency and Expectations",
@@ -136,6 +138,7 @@
         "4-6-saving-the-data": "4.6 Saving the data",
         "4-7-editing-the-data-file": "4.7 Editing the data file",
         "5-faq": "5. FAQ",
+        "q-can-this-app-be-used-to-handle-multiple-modules-a-while-this-app-allows-for-flexibility-in-naming-your-tutorials-it-should-not-be-used-to-handle-multiple-modules": "Q: Can this app be used to handle multiple modules?\nA: While this app allows for flexibility in naming your tutorials, it should not be used to handle multiple modules.",
         "6-known-issues": "6 Known issues",
         "7-glossary": "7. Glossary",
         "8-command-summary": "8. Command summary"
